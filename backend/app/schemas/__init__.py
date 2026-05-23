@@ -1,5 +1,5 @@
 """
-Schemas package
+Schemas package — Pydantic models for request/response validation.
 """
 from .appointment import (
     AppointmentCreate,
@@ -14,6 +14,11 @@ from .triage import (
     ConversationRequest,
     ConversationResponse
 )
+from .hospital import (
+    DepartmentResponse,
+    DoctorResponse,
+    ServiceResponse
+)
 
 __all__ = [
     "AppointmentCreate",
@@ -24,5 +29,8 @@ __all__ = [
     "TriageRequest",
     "TriageResponse",
     "ConversationRequest",
-    "ConversationResponse"
+    "ConversationResponse",
+    "DepartmentResponse",
+    "DoctorResponse",
+    "ServiceResponse",
 ]

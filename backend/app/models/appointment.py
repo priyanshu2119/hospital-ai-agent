@@ -3,7 +3,7 @@ Database models for appointments
 """
 from sqlalchemy import Column, Integer, String, DateTime, Text, Enum
 from sqlalchemy.ext.declarative import declarative_base
-from datetime import datetime
+from datetime import datetime, timezone
 import enum
 
 Base = declarative_base()
@@ -45,8 +45,8 @@ class Appointment(Base):
     doctor_name = Column(String(255), nullable=True)
     department = Column(String(100), nullable=True)
     
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
     
     # LiveKit session information
     livekit_room_name = Column(String(255), nullable=True)

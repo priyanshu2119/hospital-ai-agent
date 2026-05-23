@@ -2,7 +2,7 @@
 Appointment scheduling service
 """
 from sqlalchemy.orm import Session
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from ..models import Appointment, AppointmentStatus, AppointmentType
 from ..config import settings
 import logging
@@ -94,7 +94,7 @@ class AppointmentService:
                 if hasattr(appointment, key):
                     setattr(appointment, key, value)
             
-            appointment.updated_at = datetime.utcnow()
+            appointment.updated_at = datetime.now(timezone.utc)
             db.commit()
             db.refresh(appointment)
             logger.info(f"Updated appointment {appointment_id}")
@@ -156,7 +156,7 @@ class AppointmentService:
                     is_available = False
                     break
             
-            if is_available and current_time > datetime.utcnow():
+            if is_available and current_time > datetime.now(timezone.utc):
                 available_slots.append(current_time)
             
             current_time += timedelta(minutes=duration_minutes)
