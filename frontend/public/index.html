@@ -2,13 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0F2940" />
+    <meta name="color-scheme" content="light" />
+
+    <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Hospital Appointment Assistant - AI-powered voice call system"
+      content="Hospital Appointment Assistant — AI-powered medical triage, symptom assessment, and appointment scheduling. Chat with our intelligent assistant for quick healthcare guidance."
     />
+    <meta name="keywords" content="hospital, appointment, AI, triage, medical, healthcare, assistant, scheduling" />
+    <meta name="author" content="Hospital AI Team" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="Hospital Appointment Assistant" />
+    <meta property="og:description" content="AI-powered medical triage and appointment scheduling" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts — Inter (clean, modern, highly readable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Hospital Appointment Assistant</title>
+
+    <style>
+      /*
+       * Critical inline styles for preventing FOUC (Flash of Unstyled Content).
+       * This ensures the background color is correct before React hydrates.
+       */
+      body {
+        margin: 0;
+        background-color: #F0F4F8;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
